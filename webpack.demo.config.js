@@ -49,15 +49,14 @@ module.exports = {
             },
             hash: false
         }),
-        new CopyWebpackPlugin([{
-                from: 'src/demo/assets',
-                to: 'assets'
-        }/*,
-            {
-                from: 'example/js',
-                to: 'js'
-            }*/ 
-        ]),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: 'src/demo/assets',
+                    to: 'assets'
+                }
+            ]
+        }),
         new BrowserSyncPlugin({
             host: process.env.IP || 'localhost',
             port: process.env.PORT || 3000,
@@ -73,7 +72,7 @@ module.exports = {
                 use: [{
                     loader: 'babel-loader',
                     options: {
-                        presets: ['es2015']
+                        presets: ['@babel/preset-env']
                     }
                 }]
             },
