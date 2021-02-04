@@ -300,7 +300,10 @@ class AnimatedTiles extends Phaser.Plugins.ScenePlugin {
                                             // ...and loop through all tiles in that row
                                             tileRow.forEach(
                                                 (tile) => {
-                                                    // Tiled start index for tiles with 1 but animation with 0. Thus that wierd "-1"                                                    
+                                                    if (!tile) {
+                                                        return;
+                                                    }
+                                                    // Tiled start index for tiles with 1 but animation with 0. Thus that wierd "-1"
                                                     if ((tile.index - tileset.firstgid) === index) {
                                                         tiles.push(tile);
                                                     }
