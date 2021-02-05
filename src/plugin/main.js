@@ -180,8 +180,7 @@ class AnimatedTiles extends Phaser.Plugins.ScenePlugin {
                         if (animatedTile.next < 0) {
                             // Remember current frame index
                             let currentIndex = animatedTile.currentFrame;
-                            // Remember the tileId of current tile
-                            let oldTileId = animatedTile.frames[currentIndex].tileid;
+                           
                             // Advance to next in line
                             let newIndex = currentIndex + 1;
                             // If we went beyond last frame, we just start over
@@ -199,7 +198,7 @@ class AnimatedTiles extends Phaser.Plugins.ScenePlugin {
                                 if (!mapAnimData.activeLayer[layerIndex]) {
                                     return;
                                 }
-                                this.updateLayer(animatedTile, layer, oldTileId);
+                                this.updateLayer(animatedTile, layer);
 
                             });
                         }
